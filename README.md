@@ -98,3 +98,10 @@ https://github.com/suny0ung/44-2nd-Dream-frontend/assets/121158293/c9a427f2-0dd2
   <br/>
   보여지는 화면의 최상단의 값과 화면의 보여지는 값의 합이 해당 실제 페이지의 영역보다 커지면 offset값에 추가로 보여질 아이템 값을 더해서 쿼리스트링과 Fatch함수를 통해 리랜더링되어 나열되는 상품의 수가 늘어나게 구현하혔습니다.
   </br>
+  
+<!--   <details>
+  <summary> 토글기능 </summary>
+  <div markdown="1">
+    **작성한 글 보기**
+  </div>
+  </details> -->
