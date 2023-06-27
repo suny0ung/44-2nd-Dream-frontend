@@ -97,6 +97,8 @@ https://github.com/suny0ung/44-2nd-Dream-frontend/assets/121158293/c9a427f2-0dd2
 **무한스크롤 :**
   <br/>
   보여지는 화면의 최상단의 값과 화면의 보여지는 값의 합이 해당 실제 페이지의 영역보다 커지면 offset값에 추가로 보여질 아이템 값을 더해서 쿼리스트링과 Fatch함수를 통해 리랜더링되어 나열되는 상품의 수가 늘어나게 구현하혔습니다.
+  <br/>
+  검색기능에 사용한 useDebounce 컴포넌트 훅을 재활용하여 scrollTop을 통한 불필요한 함수 호출을 줄였습니다.
   </br>
   
 <!--   <details>
