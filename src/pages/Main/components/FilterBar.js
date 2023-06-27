@@ -6,9 +6,9 @@ function FilterBar({ setCategoryTitle, setCategoryNum }) {
 
   const categoryClickInfo = (id, urlNum, nameId) => {
     let title;
-    if (id === 1 && id != nameId) {
+    if (id === 1 && id !== nameId) {
       title = 'levelId';
-    } else if (id === 2 && id != nameId) {
+    } else if (id === 2 && id !== nameId) {
       title = 'ageId';
     }
     setCategoryTitle(title);
