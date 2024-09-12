@@ -5,6 +5,7 @@ import CategoryBtn from './components/CategoryBtn';
 import FilterBar from './components/FilterBar';
 import Product from './components/Product';
 import styled from 'styled-components';
+import useDebounce from './Debounce';
 
 function Main() {
   const [mainImage, setMainImage] = useState([]);
@@ -27,6 +28,8 @@ function Main() {
   const sortUrl = `&sort=${optionValue}`;
   const sortOrderUrl = `&sortorder=${sortOrderValue}`;
   const categoryUrl = `&${categoryTitle}=${categoryNum}`;
+
+  const debounceValue = useDebounce(offset);
 
   //Main Image 목데이터 fetch
   useEffect(() => {
@@ -56,29 +59,23 @@ function Main() {
 
   //TODO : 무한 스크롤 fetch
   useEffect(() => {
-    fetch(
-      `http://10.58.52.75:3000/products?${limitOffsetUrl}${sortUrl}${sortOrderUrl}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8',
-        },
-      }
-    )
+    fetch(`${api.main}?${limitOffsetUrl}${sortUrl}${sortOrderUrl}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
       .then(response => response.json())
       .then(item => {
         setProducts(prev => prev.concat(item));
       });
 
     window.addEventListener('scroll', handleScroll);
-  }, [offset]);
+  }, [debounceValue]);
 
   const handleScroll = e => {
     const num = e.target.documentElement.scrollTop;
-    if (
-      window.innerHeight + num >=
-      e.target.documentElement.scrollHeight - 200
-    ) {
+    if (window.innerHeight + num >= e.target.documentElement.scrollHeight) {
       setOffset(offset + 10);
     }
   };
